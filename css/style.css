@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+  width: 400px;
+  background-image: linear-gradient(#751a99, #1a4f5f, #0f7e53);
+  padding: 1rem;
+  color: #fff;
+}
+.wrapper .heart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper .heart-container .heart {
+  width: 140px;
+}
+.wrapper .heart-container .heart img {
+  width: 100%;
+}
+.wrapper .heart-container .date {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+.wrapper .heart-container .name {
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.wrapper .album-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.wrapper .album-container .img-group {
+  width: 90%;
+  height: auto;
+  border: 1px dotted rgba(255, 255, 255, 0.3);
+  padding: 0.3rem;
+}
+.wrapper .album-container .img-group .title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
+.wrapper .album-container .img-group img,
+.wrapper .album-container .img-group video {
+  width: 100%;
+}
+.wrapper .album-container .img-group + .img-group {
+  margin-top: 2rem;
+}
+.wrapper footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  text-align: center;
+  line-height: 2.3;
+}
+.wrapper footer h4 {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 996px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

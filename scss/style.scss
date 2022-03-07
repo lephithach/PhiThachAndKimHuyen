@@ -29,9 +29,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem 0;
 
     .heart {
-      width: 140px;
+      width: 160px;
 
       img {
         width: 100%;
@@ -39,9 +40,12 @@ body {
     }
 
     .date {
-      font-size: 1.7rem;
+      font-size: 2rem;
       font-weight: 600;
-      margin: 1rem 0;
+    }
+
+    .week {
+      font-size: 1em;
     }
 
     .name {
@@ -57,6 +61,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem 0;
+    gap: 2rem;
 
     .img-group {
       width: 90%;
@@ -75,10 +80,6 @@ body {
       video {
         width: 100%;
       }
-    }
-
-    .img-group + .img-group {
-      margin-top: 2rem;
     }
   }
 

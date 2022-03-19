@@ -77,6 +77,18 @@ const dataArr = [
     video_thumb: "images/album/1a5b77afabdd4226b3b266bba10aeaec_thumb.jpeg",
     type: "video",
   },
+  {
+    title: "Bún đậu",
+    picture_url: "images/album/275211368_3080763348812069_4503234155773307407_n.jpg",
+    alt: "Bún đậu",
+    type: "picture",
+  },
+  {
+    title: "Phúc Tea",
+    picture_url: "images/album/274313152_3344011615885337_6979006919394709099_n.jpg",
+    alt: "Phúc Tea",
+    type: "picture",
+  },
 ];
 
 const albumContainer = document.querySelector(".album-container");

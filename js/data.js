@@ -89,6 +89,18 @@ const dataArr = [
     alt: "Phúc Tea",
     type: "picture",
   },
+  {
+    title: "Jollibee",
+    picture_url: "images/album/275072366_1407066133086045_5202664060119150425_n.jpg",
+    alt: "Jollibee",
+    type: "picture",
+  },
+  {
+    title: "Jollibee",
+    picture_url: "images/album/274655867_4954349228014810_1723201730457990813_n.jpg",
+    alt: "Jollibee",
+    type: "picture",
+  },
 ];
 
 const albumContainer = document.querySelector(".album-container");

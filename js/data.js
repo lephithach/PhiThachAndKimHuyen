@@ -90,6 +90,12 @@ const dataArr = [
     type: "picture",
   },
   {
+    title: "Justatea",
+    picture_url: "images/album/274847433_656759352271758_2989967004273971938_n.jpg",
+    alt: "Justatea",
+    type: "picture",
+  },
+  {
     title: "Jollibee",
     picture_url: "images/album/275072366_1407066133086045_5202664060119150425_n.jpg",
     alt: "Jollibee",

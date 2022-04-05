@@ -13,6 +13,7 @@ body {
 
 .wrapper {
   width: 400px;
+  margin: 0 auto;
   background-image: linear-gradient(
     rgb(117, 26, 153),
     rgb(26, 79, 95),
@@ -20,6 +21,7 @@ body {
   );
   padding: 1rem;
   color: #fff;
+  overflow-x: hidden;
 
   //   background-image: url("https://i.pinimg.com/originals/92/dc/13/92dc13df1f31754c07becfe13714288c.gif");
   //   background-repeat: no-repeat;

@@ -79,45 +79,66 @@ const dataArr = [
   },
   {
     title: "Bún đậu",
-    picture_url: "images/album/275211368_3080763348812069_4503234155773307407_n.jpg",
+    picture_url:
+      "images/album/275211368_3080763348812069_4503234155773307407_n.jpg",
     alt: "Bún đậu",
     type: "picture",
   },
   {
     title: "Phúc Tea",
-    picture_url: "images/album/274313152_3344011615885337_6979006919394709099_n.jpg",
+    picture_url:
+      "images/album/274313152_3344011615885337_6979006919394709099_n.jpg",
     alt: "Phúc Tea",
     type: "picture",
   },
   {
     title: "Justatea",
-    picture_url: "images/album/274847433_656759352271758_2989967004273971938_n.jpg",
+    picture_url:
+      "images/album/274847433_656759352271758_2989967004273971938_n.jpg",
     alt: "Justatea",
     type: "picture",
   },
   {
     title: "Jollibee",
-    picture_url: "images/album/275072366_1407066133086045_5202664060119150425_n.jpg",
+    picture_url:
+      "images/album/275072366_1407066133086045_5202664060119150425_n.jpg",
     alt: "Jollibee",
     type: "picture",
   },
   {
     title: "Jollibee",
-    picture_url: "images/album/274655867_4954349228014810_1723201730457990813_n.jpg",
+    picture_url:
+      "images/album/274655867_4954349228014810_1723201730457990813_n.jpg",
     alt: "Jollibee",
     type: "picture",
   },
 ];
 
+// List name animate use
+const animateArr = [
+  "animate__bounceInRight",
+  "animate__backInUp",
+  "animate__backInLeft",
+  "animate__heartBeat",
+  "animate__rubberBand",
+  "animate__fadeInBottomLeft",
+  "animate__fadeInDown",
+  "animate__flipInY",
+  "animate__zoomInDown",
+];
+// Count lenght animateArr
+const lengthAnimateArr = animateArr.length;
+
 const albumContainer = document.querySelector(".album-container");
 
 var data = dataArr.map((item) => {
   let html = "";
+  let randomClassAnimate = Math.floor(Math.random() * lengthAnimateArr);
 
   switch (item.type) {
     case "picture":
       html += `
-        <div class="img-group">
+        <div class="img-group wow animate__animated ${animateArr[randomClassAnimate]}">
             <p class="title">${item.title}</p>
             <img
             src="${item.picture_url}"
@@ -130,7 +151,7 @@ var data = dataArr.map((item) => {
 
     case "video":
       html += `
-        <div class="img-group">
+        <div class="img-group wow animate__animated ${animateArr[randomClassAnimate]}">
             <p class="title">${item.title}</p>
             <video
                 src="${item.video_url}"

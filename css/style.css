@@ -12,9 +12,11 @@ body {
 
 .wrapper {
   width: 400px;
+  margin: 0 auto;
   background-image: linear-gradient(#751a99, #1a4f5f, #0f7e53);
   padding: 1rem;
   color: #fff;
+  overflow-x: hidden;
 }
 .wrapper .heart-container {
   display: flex;

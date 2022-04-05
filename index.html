@@ -27,6 +27,10 @@
     />
     <link rel="manifest" href="./images/fav/site.webmanifest" />
     <title>Phi Thạch & Kim Huyền</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
@@ -36,10 +40,12 @@
           <img src="./images/heart-2.gif" alt="heart" />
         </div>
 
-        <h2 class="date"></h2>
-        <p class="week"></p>
+        <h2 class="date wow animate__animated animate__flip"></h2>
+        <p class="week wow animate__animated animate__flip"></p>
 
-        <p class="name">❤️ Phi Thạch & Kim Huyền ❤️</p>
+        <p class="name wow animate__animated animate__fadeInTopRight">
+          ❤️ Phi Thạch & Kim Huyền ❤️
+        </p>
       </div>
 
       <div class="album-container">
@@ -66,6 +72,10 @@
         <p class="dateEnd"></p>
       </footer>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
     <script src="./js/date.js"></script>
     <script src="./js/data.js"></script>
   </body>

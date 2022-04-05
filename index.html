@@ -35,6 +35,21 @@
   </head>
   <body>
     <div class="wrapper">
+      <div class="scroll-top" title="Lên đầu trang">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-arrow-up-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"
+          />
+        </svg>
+      </div>
       <div class="heart-container">
         <div class="heart">
           <img src="./images/heart-2.gif" alt="heart" />
@@ -44,27 +59,43 @@
         <p class="week wow animate__animated animate__flip"></p>
 
         <p class="name wow animate__animated animate__fadeInTopRight">
-          ❤️ Phi Thạch & Kim Huyền ❤️
+          ❤️
+          <a href="https://www.facebook.com/lephiithach/" target="_blank"
+            >Phi Thạch</a
+          >
+          &
+          <a
+            href="https://www.facebook.com/profile.php?id=100024992176362"
+            target="_blank"
+            >Kim Huyền</a
+          >
+          ❤️
         </p>
       </div>
 
       <div class="album-container">
-        <!-- <div class="img-group">
-          <p class="title">Taipei Tea</p>
-          <img
-            src="./images/album/1B962FC2-FC59-4C67-82C7-1B1A2A0C9E47.JPG"
-            alt="img"
-          />
+        <!-- Javascript render list image at here -->
+      </div>
+
+      <div class="modal full-image">
+        <div class="btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-x"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+            />
+          </svg>
         </div>
 
-        <div class="img-group">
-          <p class="title">Lẩu 9 tầng mây</p>
-          <video
-            src="./images/album/1a5b77afabdd4226b3b266bba10aeaec.MOV"
-            poster="./images/album/1a5b77afabdd4226b3b266bba10aeaec_thumb.jpeg"
-            controls
-          ></video>
-        </div> -->
+        <div class="media">
+          <!-- Javascript render media at here -->
+        </div>
       </div>
 
       <footer>
@@ -72,11 +103,14 @@
         <p class="dateEnd"></p>
       </footer>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
       new WOW().init();
     </script>
     <script src="./js/date.js"></script>
     <script src="./js/data.js"></script>
+    <script src="./js/scroll-top.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>

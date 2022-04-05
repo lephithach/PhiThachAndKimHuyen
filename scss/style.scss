@@ -12,8 +12,7 @@ body {
 }
 
 .wrapper {
-  width: 400px;
-  margin: 0 auto;
+  width: 100%;
   background-image: linear-gradient(
     rgb(117, 26, 153),
     rgb(26, 79, 95),
@@ -22,10 +21,23 @@ body {
   padding: 1rem;
   color: #fff;
   overflow-x: hidden;
+  position: relative;
 
   //   background-image: url("https://i.pinimg.com/originals/92/dc/13/92dc13df1f31754c07becfe13714288c.gif");
   //   background-repeat: no-repeat;
   //   background-size: cover;
+
+  .scroll-top {
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+    z-index: 3333;
+    cursor: pointer;
+
+    svg {
+      transform: scale(2);
+    }
+  }
 
   .heart-container {
     display: flex;
@@ -55,32 +67,90 @@ body {
       font-weight: 400;
       padding: 1rem;
       border: 1px solid rgba($color: #ffffff, $alpha: 0.5);
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
     }
   }
 
   .album-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     margin: 2rem 0;
-    gap: 2rem;
+    gap: 2.2rem;
 
     .img-group {
-      width: 90%;
+      width: 100%;
       height: auto;
-      border: 1px dotted rgba($color: #fff, $alpha: 0.3);
-      padding: 0.3rem;
+      // border: 1px dotted rgba($color: #fff, $alpha: 0.3);
+      // padding: 0.3rem;
+      border-radius: 1rem;
+      position: relative;
+
+      // .title {
+      //   text-align: center;
+      //   text-transform: uppercase;
+      //   font-weight: 400;
+      //   margin-bottom: 0.2rem;
+      // }
 
       .title {
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: 400;
-        margin-bottom: 0.2rem;
+        position: absolute;
+        padding: 0.2rem 0.5rem;
+        z-index: 2;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-shadow: 1px 1px #000;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        border-radius: 0.5rem;
       }
 
       img,
       video {
+        cursor: pointer;
+        border-radius: 1rem;
         width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    height: 100%;
+    inset: 0;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.full-image {
+      visibility: hidden;
+
+      .btn {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+
+        svg {
+          transform: scale(2.5);
+          cursor: pointer;
+        }
+      }
+
+      .media {
+        img,
+        video {
+          max-width: 80vw;
+          max-height: 80vh;
+        }
       }
     }
   }
@@ -97,8 +167,46 @@ body {
   }
 }
 
+// > 1400px
+@media screen and (min-width: 1400px) {
+  .wrapper {
+    padding: 0 4rem;
+
+    .album-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// < 1400px
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    padding: 0 3rem;
+
+    .album-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// < 996px
 @media screen and (max-width: 996px) {
   .wrapper {
-    width: 100%;
+    .album-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// < 768px
+@media screen and (max-width: 768px) {
+  .wrapper {
+    .scroll-top {
+      display: none !important;
+    }
+
+    .album-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }

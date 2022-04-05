@@ -11,12 +11,22 @@ body {
 }
 
 .wrapper {
-  width: 400px;
-  margin: 0 auto;
+  width: 100%;
   background-image: linear-gradient(#751a99, #1a4f5f, #0f7e53);
   padding: 1rem;
   color: #fff;
   overflow-x: hidden;
+  position: relative;
+}
+.wrapper .scroll-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+  z-index: 3333;
+  cursor: pointer;
+}
+.wrapper .scroll-top svg {
+  transform: scale(2);
 }
 .wrapper .heart-container {
   display: flex;
@@ -43,28 +53,69 @@ body {
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
+.wrapper .heart-container .name a {
+  color: inherit;
+  text-decoration: none;
+}
 .wrapper .album-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   margin: 2rem 0;
-  gap: 2rem;
+  gap: 2.2rem;
 }
 .wrapper .album-container .img-group {
-  width: 90%;
+  width: 100%;
   height: auto;
-  border: 1px dotted rgba(255, 255, 255, 0.3);
-  padding: 0.3rem;
+  border-radius: 1rem;
+  position: relative;
 }
 .wrapper .album-container .img-group .title {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 400;
-  margin-bottom: 0.2rem;
+  position: absolute;
+  padding: 0.2rem 0.5rem;
+  z-index: 2;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-shadow: 1px 1px #000;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 0.5rem;
 }
 .wrapper .album-container .img-group img,
 .wrapper .album-container .img-group video {
+  cursor: pointer;
+  border-radius: 1rem;
   width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+.wrapper .modal {
+  position: fixed;
+  height: 100%;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .modal.full-image {
+  visibility: hidden;
+}
+.wrapper .modal.full-image .btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.wrapper .modal.full-image .btn svg {
+  transform: scale(2.5);
+  cursor: pointer;
+}
+.wrapper .modal.full-image .media img,
+.wrapper .modal.full-image .media video {
+  max-width: 80vw;
+  max-height: 80vh;
 }
 .wrapper footer {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -76,9 +127,33 @@ body {
   font-weight: 500;
 }
 
-@media screen and (max-width: 996px) {
+@media screen and (min-width: 1400px) {
   .wrapper {
-    width: 100%;
+    padding: 0 4rem;
+  }
+  .wrapper .album-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    padding: 0 3rem;
+  }
+  .wrapper .album-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 996px) {
+  .wrapper .album-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .wrapper .scroll-top {
+    display: none !important;
+  }
+  .wrapper .album-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

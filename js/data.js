@@ -69,12 +69,14 @@ const dataArr = [
     title: "Quà của bé yêu",
     video_url: "images/album/IMG_8648.mp4",
     video_thumb: "images/album/IMG_8648_thumb.jpeg",
+    alt: "Quà của bé yêu",
     type: "video",
   },
   {
     title: "Lẩu 9 tầng mây",
     video_url: "images/album/1a5b77afabdd4226b3b266bba10aeaec.MOV",
     video_thumb: "images/album/1a5b77afabdd4226b3b266bba10aeaec_thumb.jpeg",
+    alt: "Lẩu 9 tầng mây",
     type: "video",
   },
   {
@@ -99,6 +101,18 @@ const dataArr = [
     type: "picture",
   },
   {
+    title: "Beefsteak",
+    picture_url: "images/album/IMG_9312.jpeg",
+    alt: "Beefsteak",
+    type: "picture",
+  },
+  {
+    title: "Shin",
+    picture_url: "images/album/IMG_1873.JPEG",
+    alt: "Shin",
+    type: "picture",
+  },
+  {
     title: "Jollibee",
     picture_url:
       "images/album/275072366_1407066133086045_5202664060119150425_n.jpg",
@@ -112,7 +126,27 @@ const dataArr = [
     alt: "Jollibee",
     type: "picture",
   },
+  {
+    title: "Bún đậu cô cô",
+    picture_url: "images/album/IMG_1972.JPEG",
+    alt: "Bún đậu cô cô",
+    type: "picture",
+  },
+  {
+    title: "Công viên",
+    picture_url: "images/album/IMG_9451.jpeg",
+    alt: "Công viên",
+    type: "picture",
+  },
+  {
+    title: "Lẩu 9 tầng mây",
+    picture_url: "images/album/IMG_9454.jpeg",
+    alt: "Lẩu 9 tầng mây",
+    type: "picture",
+  },
 ];
+
+// alert(`Đã có tổng cộng ${dataArr.length} bài đăng rồi nha`);
 
 // List name animate use
 const animateArr = [
@@ -126,23 +160,29 @@ const animateArr = [
   "animate__flipInY",
   "animate__zoomInDown",
 ];
+
 // Count lenght animateArr
 const lengthAnimateArr = animateArr.length;
 
+// Selector div class album-container
 const albumContainer = document.querySelector(".album-container");
 
-var data = dataArr.map((item) => {
+// Loop data array
+var data = dataArr.map((item, key) => {
   let html = "";
-  let randomClassAnimate = Math.floor(Math.random() * lengthAnimateArr);
+  let randomNumberAnimateArray = Math.floor(Math.random() * lengthAnimateArr);
+  let randomClassAnimate = animateArr[randomNumberAnimateArray];
 
   switch (item.type) {
     case "picture":
       html += `
-        <div class="img-group wow animate__animated ${animateArr[randomClassAnimate]}">
+        <div class="img-group wow animate__animated ${randomClassAnimate}">
             <p class="title">${item.title}</p>
             <img
-            src="${item.picture_url}"
-            alt="${item.alt}"
+              src="${item.picture_url}"
+              alt="${item.alt}"
+              title="${item.alt}"
+              data-id="${key + 1}"
             />
         </div>
     `;
@@ -151,12 +191,14 @@ var data = dataArr.map((item) => {
 
     case "video":
       html += `
-        <div class="img-group wow animate__animated ${animateArr[randomClassAnimate]}">
+        <div class="img-group wow animate__animated ${randomClassAnimate}">
             <p class="title">${item.title}</p>
             <video
-                src="${item.video_url}"
-                poster="${item.video_thumb}"
-                controls
+              src="${item.video_url}"
+              poster="${item.video_thumb}"
+              alt="${item.alt}"
+              title="${item.alt}"
+              data-id="${key + 1}"
             ></video>
         </div>
     `;
@@ -168,4 +210,5 @@ var data = dataArr.map((item) => {
   }
 });
 
+// Render HTML to index.html
 albumContainer.innerHTML = data.join("");

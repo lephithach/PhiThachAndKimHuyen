@@ -16,6 +16,15 @@ const closeModal = () => {
   if (getVideoElement) {
     modalMedia.removeChild(getVideoElement);
   }
+
+  // unlock scroll
+  document.querySelector("body").style.overflowY = "scroll";
+};
+
+const openModal = () => {
+  modalFullImage.style.visibility = "visible";
+  // lock scroll
+  document.querySelector("body").style.overflowY = "hidden";
 };
 
 btnClose.onclick = () => {
@@ -40,7 +49,7 @@ albumImageList.forEach((image) => {
     let srcImage = e.target.getAttribute("src");
 
     // Show modal
-    modalFullImage.style.visibility = "visible";
+    openModal();
 
     // Create div Image
     let modalImage = document.createElement("img");
@@ -61,7 +70,7 @@ albumVideoList.forEach((video) => {
     let srcVideo = e.target.getAttribute("src");
 
     // Show modal
-    modalFullImage.style.visibility = "visible";
+    openModal();
 
     // Create div Image
     let modalImage = document.createElement("video");

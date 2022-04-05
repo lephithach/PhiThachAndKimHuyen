@@ -1,0 +1,22 @@
+@keyframes scrollTop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalShow {
+  from {
+    transform: scale(0.8);
+    visibility: hidden;
+  }
+  to {
+    transform: scale(1);
+    visibility: visible;
+  }
+}

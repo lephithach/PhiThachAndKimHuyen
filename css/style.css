@@ -1,4 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@keyframes scrollTop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes modalShow {
+  from {
+    transform: scale(0.8);
+    visibility: hidden;
+  }
+  to {
+    transform: scale(1);
+    visibility: visible;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -13,10 +34,13 @@ body {
 .wrapper {
   width: 100%;
   background-image: linear-gradient(#751a99, #1a4f5f, #0f7e53);
-  padding: 1rem;
+  padding: 1rem 4rem;
   color: #fff;
   overflow-x: hidden;
   position: relative;
+}
+.wrapper.dark-mode {
+  background-image: linear-gradient(#18191a, #18191a) !important;
 }
 .wrapper .scroll-top {
   position: fixed;
@@ -24,9 +48,43 @@ body {
   right: 1.5rem;
   z-index: 3333;
   cursor: pointer;
-}
-.wrapper .scroll-top svg {
   transform: scale(2);
+  transition: all 0.25s ease-in-out;
+  z-index: 999;
+}
+.wrapper .scroll-top svg:hover {
+  animation: scrollTop 1.5s infinite;
+}
+.wrapper .tool {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  padding: 1rem 0.7rem;
+  border-radius: 0.6rem;
+  z-index: 999;
+  transition: all 0.25s ease-in-out;
+}
+.wrapper .tool.hidden {
+  right: -1.55rem;
+  cursor: pointer;
+}
+.wrapper .tool.hidden .button {
+  visibility: hidden;
+}
+.wrapper .tool .button {
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0 0.3rem;
 }
 .wrapper .heart-container {
   display: flex;
@@ -52,6 +110,8 @@ body {
   font-weight: 400;
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0.6rem;
+  text-align: center;
 }
 .wrapper .heart-container .name a {
   color: inherit;
@@ -68,6 +128,10 @@ body {
   height: auto;
   border-radius: 1rem;
   position: relative;
+  transition: all 0.25s ease-in-out;
+}
+.wrapper .album-container .img-group:hover {
+  transform: scale(1.1);
 }
 .wrapper .album-container .img-group .title {
   position: absolute;
@@ -105,15 +169,21 @@ body {
 }
 .wrapper .modal.full-image .btn {
   position: absolute;
-  right: 1rem;
-  top: 1rem;
+  right: 1.5rem;
+  top: 1.5rem;
+  transform: scale(2.8);
 }
 .wrapper .modal.full-image .btn svg {
-  transform: scale(2.5);
   cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.wrapper .modal.full-image .btn svg:hover {
+  fill: red;
+  transform: rotate(90deg);
 }
 .wrapper .modal.full-image .media img,
 .wrapper .modal.full-image .media video {
+  animation: modalShow 0.25s linear;
   max-width: 80vw;
   max-height: 80vh;
 }
@@ -128,17 +198,11 @@ body {
 }
 
 @media screen and (min-width: 1400px) {
-  .wrapper {
-    padding: 0 4rem;
-  }
   .wrapper .album-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media screen and (max-width: 1400px) {
-  .wrapper {
-    padding: 0 3rem;
-  }
   .wrapper .album-container {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -149,6 +213,9 @@ body {
   }
 }
 @media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 1rem;
+  }
   .wrapper .scroll-top {
     display: none !important;
   }

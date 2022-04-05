@@ -257,13 +257,28 @@ $colorDarkMode: #18191a;
 // < 768px
 @media screen and (max-width: 768px) {
   .wrapper {
-    padding: 1rem;
+    padding: 1rem 2rem;
+
     .scroll-top {
       display: none !important;
     }
 
     .album-container {
       grid-template-columns: repeat(1, 1fr);
+
+      .img-group {
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+
+    .tool {
+      transform: scale(1.4);
+
+      &.hidden {
+        right: -1.9rem;
+      }
     }
   }
 }

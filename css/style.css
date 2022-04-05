@@ -214,13 +214,22 @@ body {
 }
 @media screen and (max-width: 768px) {
   .wrapper {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
   .wrapper .scroll-top {
     display: none !important;
   }
   .wrapper .album-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .wrapper .album-container .img-group:hover {
+    transform: none;
+  }
+  .wrapper .tool {
+    transform: scale(1.4);
+  }
+  .wrapper .tool.hidden {
+    right: -1.9rem;
   }
 }
 

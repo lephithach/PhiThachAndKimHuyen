@@ -1,0 +1,71 @@
+// > 1400px
+@media screen and (min-width: 1400px) {
+  .wrapper {
+    .album-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+// < 1400px
+@media screen and (max-width: 1400px) {
+  .wrapper {
+    .album-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// < 996px
+@media screen and (max-width: 996px) {
+  .wrapper {
+    .album-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// < 768px
+@media screen and (max-width: 768px) {
+  .wrapper {
+    padding: 1rem 2rem;
+
+    .scroll-top {
+      display: none;
+    }
+
+    .album-container {
+      grid-template-columns: repeat(1, 1fr);
+
+      .img-group {
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+
+    .toolbar {
+      transform: scale(1.4);
+
+      &.hidden {
+        width: 2rem;
+        height: 4rem;
+        right: -0.5rem;
+        background-color: rgba($color: #fff, $alpha: 0.3);
+
+        &::before {
+          content: "Open";
+          position: absolute;
+          display: block;
+          font-size: 11px;
+          transform: rotate(-90deg);
+          right: 7px;
+        }
+
+        .button {
+          display: none;
+        }
+      }
+    }
+  }
+}

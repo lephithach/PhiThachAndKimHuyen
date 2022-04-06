@@ -46,39 +46,38 @@ body {
   position: fixed;
   bottom: 1rem;
   right: 1.5rem;
-  z-index: 3333;
   cursor: pointer;
   transform: scale(2);
   transition: all 0.25s ease-in-out;
-  z-index: 999;
+  z-index: 199;
 }
 .wrapper .scroll-top svg:hover {
   animation: scrollTop 1.5s infinite;
 }
-.wrapper .tool {
+.wrapper .toolbar {
   position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem 0;
+  gap: 1.5rem 0;
   right: 0.8rem;
   top: 50%;
   transform: translateY(-50%);
   background-color: #fff;
-  padding: 1rem 0.7rem;
+  padding: 1.2rem 0.8rem;
   border-radius: 0.6rem;
-  z-index: 999;
+  z-index: 199;
   transition: all 0.25s ease-in-out;
 }
-.wrapper .tool.hidden {
+.wrapper .toolbar.hidden {
   right: -1.55rem;
   cursor: pointer;
 }
-.wrapper .tool.hidden .button {
+.wrapper .toolbar.hidden .button {
   visibility: hidden;
 }
-.wrapper .tool .button {
+.wrapper .toolbar .button {
   color: #000;
   cursor: pointer;
   display: flex;
@@ -172,6 +171,7 @@ body {
   right: 1.5rem;
   top: 1.5rem;
   transform: scale(2.8);
+  z-index: 201;
 }
 .wrapper .modal.full-image .btn svg {
   cursor: pointer;
@@ -183,9 +183,29 @@ body {
 }
 .wrapper .modal.full-image .media img,
 .wrapper .modal.full-image .media video {
+  transition: all 0.25s ease-in-out;
   animation: modalShow 0.25s linear;
   max-width: 80vw;
   max-height: 80vh;
+  position: relative;
+}
+.wrapper .modal.full-image .tools {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 0 2rem;
+  z-index: 201;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+.wrapper .modal.full-image .tools .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1.3);
+  cursor: pointer;
 }
 .wrapper footer {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -217,7 +237,7 @@ body {
     padding: 1rem 2rem;
   }
   .wrapper .scroll-top {
-    display: none !important;
+    display: none;
   }
   .wrapper .album-container {
     grid-template-columns: repeat(1, 1fr);
@@ -225,11 +245,25 @@ body {
   .wrapper .album-container .img-group:hover {
     transform: none;
   }
-  .wrapper .tool {
+  .wrapper .toolbar {
     transform: scale(1.4);
   }
-  .wrapper .tool.hidden {
-    right: -1.9rem;
+  .wrapper .toolbar.hidden {
+    width: 2rem;
+    height: 4rem;
+    right: -0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  .wrapper .toolbar.hidden::before {
+    content: "Open";
+    position: absolute;
+    display: block;
+    font-size: 11px;
+    transform: rotate(-90deg);
+    right: 7px;
+  }
+  .wrapper .toolbar.hidden .button {
+    display: none;
   }
 }
 

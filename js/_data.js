@@ -1,4 +1,4 @@
-const dataArr = [
+export const dataArr = [
   {
     title: "Taipei Tea",
     picture_url: "images/album/1B962FC2-FC59-4C67-82C7-1B1A2A0C9E47.JPG",
@@ -145,70 +145,3 @@ const dataArr = [
     type: "picture",
   },
 ];
-
-// alert(`Đã có tổng cộng ${dataArr.length} bài đăng rồi nha`);
-
-// List name animate use
-const animateArr = [
-  "animate__bounceInRight",
-  "animate__backInUp",
-  "animate__backInLeft",
-  "animate__heartBeat",
-  "animate__rubberBand",
-  "animate__fadeInBottomLeft",
-  "animate__fadeInDown",
-  "animate__flipInY",
-  "animate__zoomInDown",
-];
-
-// Count lenght animateArr
-const lengthAnimateArr = animateArr.length;
-
-// Selector div class album-container
-const albumContainer = document.querySelector(".album-container");
-
-// Loop data array
-var data = dataArr.map((item, key) => {
-  let html = "";
-  let randomNumberAnimateArray = Math.floor(Math.random() * lengthAnimateArr);
-  let randomClassAnimate = animateArr[randomNumberAnimateArray];
-
-  switch (item.type) {
-    case "picture":
-      html += `
-        <div class="img-group wow animate__animated ${randomClassAnimate}">
-            <p class="title">${item.title}</p>
-            <img
-              src="${item.picture_url}"
-              alt="${item.alt}"
-              title="${item.alt}"
-              data-id="${key + 1}"
-            />
-        </div>
-    `;
-
-      return html;
-
-    case "video":
-      html += `
-        <div class="img-group wow animate__animated ${randomClassAnimate}">
-            <p class="title">${item.title}</p>
-            <video
-              src="${item.video_url}"
-              poster="${item.video_thumb}"
-              alt="${item.alt}"
-              title="${item.alt}"
-              data-id="${key + 1}"
-            ></video>
-        </div>
-    `;
-
-      return html;
-
-    default:
-      return html;
-  }
-});
-
-// Render HTML to index.html
-albumContainer.innerHTML = data.join("");

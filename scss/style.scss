@@ -14,6 +14,9 @@ body {
 }
 
 $colorDarkMode: #18191a;
+$indexScrollTop: 199;
+$indexToolBar: 199;
+$indexModal: 200;
 
 .wrapper {
   width: 100%;
@@ -34,19 +37,14 @@ $colorDarkMode: #18191a;
     ) !important;
   }
 
-  //   background-image: url("https://i.pinimg.com/originals/92/dc/13/92dc13df1f31754c07becfe13714288c.gif");
-  //   background-repeat: no-repeat;
-  //   background-size: cover;
-
   .scroll-top {
     position: fixed;
     bottom: 1rem;
     right: 1.5rem;
-    z-index: 3333;
     cursor: pointer;
     transform: scale(2);
     transition: all 0.25s ease-in-out;
-    z-index: 999;
+    z-index: $indexScrollTop;
 
     svg {
       &:hover {
@@ -55,20 +53,20 @@ $colorDarkMode: #18191a;
     }
   }
 
-  .tool {
+  .toolbar {
     position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem 0;
+    gap: 1.5rem 0;
     right: 0.8rem;
     top: 50%;
     transform: translateY(-50%);
     background-color: #fff;
-    padding: 1rem 0.7rem;
+    padding: 1.2rem 0.8rem;
     border-radius: 0.6rem;
-    z-index: 999;
+    z-index: $indexToolBar;
     transition: all 0.25s ease-in-out;
 
     &.hidden {
@@ -178,7 +176,7 @@ $colorDarkMode: #18191a;
     height: 100%;
     inset: 0;
     background-color: rgba($color: #000000, $alpha: 0.8);
-    z-index: 200;
+    z-index: $indexModal;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -192,6 +190,7 @@ $colorDarkMode: #18191a;
         right: 1.5rem;
         top: 1.5rem;
         transform: scale(2.8);
+        z-index: $indexModal + 1;
 
         svg {
           cursor: pointer;
@@ -207,9 +206,31 @@ $colorDarkMode: #18191a;
       .media {
         img,
         video {
+          transition: all 0.25s ease-in-out;
           animation: modalShow 0.25s linear;
           max-width: 80vw;
           max-height: 80vh;
+          position: relative;
+        }
+      }
+
+      .tools {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+        gap: 0 2rem;
+        z-index: $indexModal + 1;
+        background-color: rgba($color: #fff, $alpha: 0.2);
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+
+        .button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform: scale(1.3);
+          cursor: pointer;
         }
       }
     }
@@ -227,58 +248,4 @@ $colorDarkMode: #18191a;
   }
 }
 
-// > 1400px
-@media screen and (min-width: 1400px) {
-  .wrapper {
-    .album-container {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-}
-
-// < 1400px
-@media screen and (max-width: 1400px) {
-  .wrapper {
-    .album-container {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-}
-
-// < 996px
-@media screen and (max-width: 996px) {
-  .wrapper {
-    .album-container {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-
-// < 768px
-@media screen and (max-width: 768px) {
-  .wrapper {
-    padding: 1rem 2rem;
-
-    .scroll-top {
-      display: none !important;
-    }
-
-    .album-container {
-      grid-template-columns: repeat(1, 1fr);
-
-      .img-group {
-        &:hover {
-          transform: none;
-        }
-      }
-    }
-
-    .tool {
-      transform: scale(1.4);
-
-      &.hidden {
-        right: -1.9rem;
-      }
-    }
-  }
-}
+@import "responsive";

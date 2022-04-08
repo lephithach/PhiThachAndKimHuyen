@@ -52,22 +52,18 @@ mediaList.forEach((item) => {
     let tagName = e.target.tagName;
     // Lấy đường dẫn của item vừa click
     let srcMedia = e.target.getAttribute("src");
-
     // Tạo thẻ div theo tagname vừa click
     let modalTagName = document.createElement(tagName);
+    // Thêm thẻ div vừa tạo vào div cha
+    modalMedia.appendChild(modalTagName);
 
     // Xử lý logic theo tagname
     switch (tagName) {
       case "IMG":
-        modalMedia.appendChild(modalTagName);
-
         modalTagName.setAttribute("src", srcMedia);
-
         break;
 
       case "VIDEO":
-        modalMedia.appendChild(modalTagName);
-
         modalTagName.setAttribute("src", srcMedia);
         modalTagName.setAttribute("controls", true);
         modalTagName.play();
@@ -79,15 +75,19 @@ mediaList.forEach((item) => {
 
     // Thêm class media để xử lý các sự kiện rotate
     modalTagName.classList.add("media");
-
     // Show modal
     openModal();
   };
 });
 
 // Tools
-const btnZoomIn = document.querySelector(".tools .zoom-in");
-const btnZoomOut = document.querySelector(".tools .zoom-out");
+const divTools = document.querySelector(".modal.full-image .tools");
+divTools.onclick = (e) => {
+  e.stopPropagation();
+};
+
+const btnZoomIn = divTools.querySelector(".zoom-in");
+const btnZoomOut = divTools.querySelector(".zoom-out");
 
 const handelZoom = (type = "zoomIn", zoom, number) => {
   zoom = Number(zoom);
@@ -110,7 +110,7 @@ const handelZoom = (type = "zoomIn", zoom, number) => {
   return zoom.toFixed(1);
 };
 
-const handelDragMedia = (status, element) => {
+const handelDragMedia = (status) => {
   status
     ? new Draggabilly(document.querySelector(".modal.full-image .media"))
     : handelCenterMedia();
@@ -143,7 +143,7 @@ btnZoomIn.addEventListener("click", (e) => {
   btnZoomOut.classList.remove("disable");
 
   // Drag image media
-  handelDragMedia(true, modalMedia);
+  handelDragMedia(true);
 });
 
 // Zoom out
@@ -151,14 +151,6 @@ btnZoomOut.addEventListener("click", (e) => {
   e.stopPropagation();
   let mediaElement = modalMedia.querySelector("img");
   let scale = 0;
-
-  // if (!sel.getAttribute("data-zoom")) {
-  //   let initZoom = 1;
-  //   scale = handelZoom("zoomOut", initZoom, 0.6);
-  // } else {
-  //   let initZoom = sel.getAttribute("data-zoom");
-  //   scale = handelZoom("zoomOut", initZoom, 0.6);
-  // }
 
   if (mediaElement.getAttribute("data-zoom")) {
     let initZoom = mediaElement.getAttribute("data-zoom");
@@ -171,7 +163,7 @@ btnZoomOut.addEventListener("click", (e) => {
 
     if (scale == 1) {
       // Drag image media
-      handelDragMedia(false, modalMedia);
+      handelDragMedia(false);
     }
 
     // Remove disable zoom in
@@ -180,8 +172,8 @@ btnZoomOut.addEventListener("click", (e) => {
 });
 
 // Rotate
-const btnRotateRight = document.querySelector(".tools .rotate-right");
-const btnRotateLeft = document.querySelector(".tools .rotate-left");
+const btnRotateRight = divTools.querySelector(".rotate-right");
+const btnRotateLeft = divTools.querySelector(".rotate-left");
 
 btnRotateRight.addEventListener("click", (e) => {
   e.stopPropagation();

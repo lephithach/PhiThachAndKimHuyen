@@ -45,25 +45,12 @@
     }
 
     .toolbar {
-      transform: scale(1.4);
-
       &.hidden {
         width: 2rem;
-        height: 4rem;
-        right: -0.5rem;
-        background-color: rgba($color: #fff, $alpha: 0.3);
 
         &::before {
-          content: "Open";
-          position: absolute;
-          display: block;
-          font-size: 11px;
-          transform: rotate(-90deg);
-          right: 7px;
-        }
-
-        .button {
-          display: none;
+          font-size: 14px;
+          right: 1px;
         }
       }
     }

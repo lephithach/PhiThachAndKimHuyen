@@ -133,7 +133,7 @@ $indexModal: 200;
     .name {
       font-size: 1.2rem;
       font-weight: 400;
-      padding: 1rem 0.7rem;
+      padding: 1rem 0.6rem;
       border: 1px solid rgba($color: #ffffff, $alpha: 0.5);
       border-radius: 0.6rem;
       text-align: center;
@@ -165,6 +165,9 @@ $indexModal: 200;
       .title {
         position: absolute;
         padding: 0.2rem 0.5rem;
+        text-align: center;
+        min-width: 55%;
+        max-width: 70%;
         z-index: 2;
         bottom: 15px;
         left: 50%;

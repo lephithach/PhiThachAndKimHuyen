@@ -144,4 +144,11 @@ export const dataArr = [
     alt: "Lẩu 9 tầng mây",
     type: "picture",
   },
+  {
+    title: "Bánh tráng nướng",
+    picture_url:
+      "images/album/277832381_1394429034331916_2288225988644165980_n.jpg",
+    alt: "Bánh tráng nướng",
+    type: "picture",
+  },
 ];

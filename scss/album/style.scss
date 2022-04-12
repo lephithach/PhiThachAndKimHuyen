@@ -63,6 +63,57 @@ body {
       }
     }
   }
+
+  .time-line {
+    list-style: none;
+    padding: 2rem 0;
+
+    .time-line-item {
+      display: flex;
+      gap: 0 1rem;
+      height: auto;
+      width: 500px;
+
+      .time {
+        text-align: center;
+      }
+
+      .icon {
+        position: relative;
+        width: 1px;
+        background-color: rgb(111, 111, 111);
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: translateX(-50%);
+          width: 15px;
+          height: 15px;
+          background-color: #000;
+          border-radius: 100rem;
+        }
+      }
+
+      &.active {
+        color: blue;
+
+        .icon {
+          background-color: blue;
+
+          &::before {
+            content: "";
+            background-color: blue !important;
+          }
+        }
+      }
+
+      .desc {
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1199px) {

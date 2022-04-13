@@ -43,42 +43,44 @@ modalMedia.addEventListener("click", (e) => {
   e.stopPropagation();
 });
 
-// Show full media
-const mediaList = document.querySelectorAll(".album-container .img-group");
+export const handelModalMedia = () => {
+  // Show full media
+  let mediaList = document.querySelectorAll(".album-container .img-group");
 
-mediaList.forEach((item) => {
-  item.onclick = (e) => {
-    // Lấy tagname của item vừa click
-    let tagName = e.target.tagName;
-    // Lấy đường dẫn của item vừa click
-    let srcMedia = e.target.getAttribute("src");
-    // Tạo thẻ div theo tagname vừa click
-    let modalTagName = document.createElement(tagName);
-    // Thêm thẻ div vừa tạo vào div cha
-    modalMedia.appendChild(modalTagName);
+  mediaList.forEach((item) => {
+    item.onclick = (e) => {
+      // Lấy tagname của item vừa click
+      let tagName = e.target.tagName;
+      // Lấy đường dẫn của item vừa click
+      let srcMedia = e.target.getAttribute("src");
+      // Tạo thẻ div theo tagname vừa click
+      let modalTagName = document.createElement(tagName);
+      // Thêm thẻ div vừa tạo vào div cha
+      modalMedia.appendChild(modalTagName);
 
-    // Xử lý logic theo tagname
-    switch (tagName) {
-      case "IMG":
-        modalTagName.setAttribute("src", srcMedia);
-        break;
+      // Xử lý logic theo tagname
+      switch (tagName) {
+        case "IMG":
+          modalTagName.setAttribute("src", srcMedia);
+          break;
 
-      case "VIDEO":
-        modalTagName.setAttribute("src", srcMedia);
-        modalTagName.setAttribute("controls", true);
-        modalTagName.play();
-        break;
+        case "VIDEO":
+          modalTagName.setAttribute("src", srcMedia);
+          modalTagName.setAttribute("controls", true);
+          modalTagName.play();
+          break;
 
-      default:
-        break;
-    }
+        default:
+          break;
+      }
 
-    // Thêm class media để xử lý các sự kiện rotate
-    modalTagName.classList.add("media");
-    // Show modal
-    openModal();
-  };
-});
+      // Thêm class media để xử lý các sự kiện rotate
+      modalTagName.classList.add("media");
+      // Show modal
+      openModal();
+    };
+  });
+};
 
 // Tools
 const divTools = document.querySelector(".modal.full-image .tools");

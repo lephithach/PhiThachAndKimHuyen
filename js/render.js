@@ -1,5 +1,6 @@
 import { dataArr } from "./_data.js";
 import { animateArr } from "./_listAnimate.js";
+import { handelModalMedia } from "./modal.js";
 
 // Count lenght animateArr
 const lengthAnimateArr = animateArr.length;
@@ -81,6 +82,9 @@ btnLoadMore.addEventListener("click", handleLoadMore);
 const renderHTML = () => {
   let data = dataArr.map(handelData);
   albumContainer.innerHTML = data.join("");
+
+  // Call function handelModalMedia
+  handelModalMedia();
 };
 
 renderHTML();

@@ -151,4 +151,22 @@ export const dataArr = [
     alt: "Bánh tráng nướng",
     type: "picture",
   },
+  {
+    title: "Otoke Chicken",
+    picture_url: "images/album/IMG_2190.jpeg",
+    alt: "Otoke Chicken",
+    type: "picture",
+  },
+  {
+    title: "Otoke Chicken",
+    picture_url: "images/album/IMG_2193.jpeg",
+    alt: "Otoke Chicken",
+    type: "picture",
+  },
+  {
+    title: "Bờ kè",
+    picture_url: "images/album/IMG_2195.jpeg",
+    alt: "Bờ kè",
+    type: "picture",
+  },
 ];

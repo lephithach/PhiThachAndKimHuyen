@@ -6,6 +6,8 @@ import { handelModalMedia } from "./modal.js";
 const lengthAnimateArr = animateArr.length;
 // Selector div class album-container
 const albumContainer = document.querySelector(".album-container");
+// Reverse data Array
+dataArr.reverse();
 
 const handelData = (item, key) => {
   let html = "";
